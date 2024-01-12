@@ -14,17 +14,17 @@ void solve() {
     ll a, b, c;
     cin >> a >> b >> c;
 
-    // if (a<c) cout << 1 << " ";
-    // else cout << -1 << " ";
-    // if (a*b>c) print(b);
-    // else print(-1);
+    if (a<c) cout << 1 << " ";
+    else cout << -1 << " ";
+    if (a*b>c) print(b);
+    else print(-1);
 
-    if (a >= c) {
-        printab(-1, b);
-    } else {
-        if (a*b<=c) printab(a, -1);
-        else printab(1, b);
-    }
+    // if (a >= c) {
+    //     printab(-1, b);
+    // } else {
+    //     if (a*b<=c) printab(a, -1);
+    //     else printab(1, b);
+    // }
 }
 
 int main() {
