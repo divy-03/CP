@@ -19,12 +19,12 @@ void solve() {
     if (a*b>c) print(b);
     else print(-1);
 
-    // if (a >= c) {
-    //     printab(-1, b);
-    // } else {
-    //     if (a*b<=c) printab(a, -1);
-    //     else printab(1, b);
-    // }
+    if (a >= c) {
+        printab(-1, b);
+    } else {
+        if (a*b<=c) printab(1, -1);
+        else printab(1, b);
+    }
 }
 
 int main() {
