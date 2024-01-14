@@ -3,5 +3,6 @@
 .cph/
 
 build/
+*.bin
 
 *.exe
