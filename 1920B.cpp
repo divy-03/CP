@@ -20,7 +20,9 @@ void solve() {
     sort(vec.begin(), vec.end());
 
     ll x = b>c ? b : c;
+    if (b==c) x++;
     ll mx = -LONG_LONG_MAX;
+    ll y = b;
     
     while (x--) {
         ll sum = 0;
@@ -34,11 +36,13 @@ void solve() {
         for (ll i = vec.size()-1; i >= vec.size()-c; i--) {
             vec[i] = vec[i]*(-1);
         }
-        if (vec.size() == 1 && mx < 0 && b >= c) {
-            print(0);
-            return;
+        if (vec.size() == 1 && mx < 0 && b > c) {
+            mx = max(mx, 0ll);
         } else {
-            vec.pop_back();
+            if (y) {
+                vec.pop_back();
+                y--;
+            }
         }
     }
     print(mx);
