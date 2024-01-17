@@ -11,41 +11,26 @@ typedef int long long ll;
 #define NO cout << "NO\n"
 
 void solve() {
-    ll a, b, c;
-    cin >> a >> b >> c;
-
-    vector <ll> vec(a);
-    readV(vec);
-
-    sort(vec.begin(), vec.end());
-
-    ll x = b>c ? b : c;
-    if (b==c) x++;
-    ll mx = -LONG_LONG_MAX;
-    ll y = b;
+    int n, k, x;
+    cin >> n >> k >> x;
     
-    while (x--) {
-        ll sum = 0;
-        for (ll i = vec.size()-1; i >= vec.size()-c; i--) {
-            vec[i] = vec[i]*(-1);
-        }
-        for (auto &e: vec) {
-            sum += e;
-        }
-        mx = max(sum, mx);
-        for (ll i = vec.size()-1; i >= vec.size()-c; i--) {
-            vec[i] = vec[i]*(-1);
-        }
-        if (vec.size() == 1 && mx < 0 && b > c) {
-            mx = max(mx, 0ll);
-        } else {
-            if (y) {
-                vec.pop_back();
-                y--;
-            }
-        }
+    int A[n + 1] = {};
+    for (int i = 1; i <= n; i++)
+        cin >> A[i];
+    
+    sort(A + 1, A + n + 1, greater<int>());
+    
+    // Prefix sum
+    for (int i = 1; i <= n; i++)
+        A[i] += A[i - 1];
+
+    int ans = -1e9;
+    for (int i = 0; i <= k; i++) {
+        ans = max(ans, A[n] - 2 * A[min(i + x, n)] + A[i]);
+        // cout << ans << " ";
     }
-    print(mx);
+    
+    print(ans);
 }
 
  int main() {
