@@ -1,33 +1,43 @@
+/*
+    excl - grey
+*/
 #include <bits/stdc++.h>
 using namespace std;
 
 typedef int long long ll;
-#define print(a) cout << a << "\n"
-#define printab(a, b) cout << a << " " << b << "\n"
+#define print(a) cout << a << "\n";
+#define printab(a,b) cout << a << " " << b << "\n";
 #define readV(vec) for (auto &e: vec) cin >> e;
-#define debug(vec) for (auto &e: vec) cout << e << " ";
+#define debug(vec) for (auto &e: vec) {cout << e << " ";} cout << "\n";
 #define nl cout << "\n"
-#define YES cout << "YES\n"
-#define NO cout << "NO\n"
+#define YES cout << "YES" << "\n"
+#define NO cout << "NO" << "\n"
+
+const int N = 100005;
 
 void solve() {
-    ll n, count = 0;
+    ll n;
     cin >> n;
-
-    vector <ll> vec(n);
+    
+    vector<long long> vec(n);
     readV(vec);
-    for (int i = 0; i < n-1; i++){
-        if (vec[i] < vec[i+1]) count++;
+
+    ll ans = 0;
+    ll s = n+1, t = n+1;
+    for (auto &e: vec) {
+        if (e<=s) s = e;
+        else if (e<=t) t = e;
+        else {
+            s = t;
+            t = e;
+            ans++;
+        }
     }
-    if (count == 1) {print(0); return;}
-    ll a = count%2==0 ? count/2 : count/2+1;
-    if (n-1==count && count!=0) {print((count/2)+1);return;}
-    print(a);   
+    print(ans);
 }
 
 int main() {
-    ll t;
+    int t = 1;
     cin >> t;
-
     while (t--) solve();
 }
