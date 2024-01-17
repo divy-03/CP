@@ -14,6 +14,8 @@ void solve()
     vector<ll> piles(n);
 
     int prev = 0;
+    
+    // Prefix Sum
     for (int i = 0; i < n; i++) {
         cin >> piles[i];
         piles[i] += prev;
@@ -24,7 +26,6 @@ void solve()
     vector <ll> worm(m);
     for (auto &i : worm) cin >> i;
     
-
     for (auto &target : worm) {
         auto index = lower_bound(piles.begin(), piles.end(),target) - piles.begin();
         printnl(index+1);
