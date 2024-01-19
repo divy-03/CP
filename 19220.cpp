@@ -16,19 +16,13 @@ void solve() {
     string s1, s2, s3;
     cin >> s1 >> s2 >> s3;
 
-    ll count1=0, count2=0, count3=0;
+    bool res = false;
     for (int i = 0; i < n; i++) {
-        if (s1[i]!=s2[i]) {
-            if (s1[i]==s3[i]||s2[i]==s3[i]) {
-                count1++;
-            } else count3++;
-        }
-        else count2++;
-    }    
-    // cout << count1 << " ";
-    // printab(count2, count3);
-    if (count1) NO;
-    else YES;
+        if (s1[i] == s2[i] and s1[i] != s3[i]) { res = true; }
+        if (s1[i] != s3[i] and s2[i] != s3[i]) { res = true; }
+    }
+    if (res) YES;
+    else NO;
 }
 
 int main() {
