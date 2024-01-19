@@ -14,7 +14,12 @@ void solve() {
     ll n;
     cin >> n;
     vector<long long> vec(n);
-    readV(vec);
+    // readV(vec);
+    for (int i = 0; i < n; i++) {
+        ll a;
+        cin >> a;
+        vec[i] = 1 << a;
+    }
 
     set<int> mySet(vec.begin(), vec.end());
     ll count = 0;
@@ -23,9 +28,9 @@ void solve() {
             if (i==j){
                 continue;
             } else {
-                int sum = vec[i] + vec[j];
+                ll sum = vec[i] + vec[j];
 
-                if (mySet.find(sum) != mySet.end()) {
+                if (mySet.find(sum) != mySet.end() || mySet.lower_bound(sum) != mySet.end()) {
                     count++;
                 }
             }
@@ -40,6 +45,8 @@ void solve() {
             }
         }
     }
+    // debug(vec);
+    // nl;
     // printab(ans, count);
     if (ans-count>0) print(ans-count);
     else print(0);
