@@ -1,36 +1,31 @@
+/*
+    excl - grey
+*/
 #include <bits/stdc++.h>
 using namespace std;
 
 typedef int long long ll;
-#define print(a) cout << a << "\n"
-#define printab(a, b) cout << a << " " << b << "\n"
+#define print(a) cout << a << "\n";
 #define readV(vec) for (auto &e: vec) cin >> e;
-#define debug(vec) for (auto &e: vec) cout << e << " ";
-#define nl cout << "\n"
-#define YES cout << "YES\n"
-#define NO cout << "NO\n"
 
 void solve() {
-    ll n, k, mxB = 0, mx = 0;
+    ll n, k;
     cin >> n >> k;
+    vector <ll> a(n); readV(a);
+    vector <ll> b(n); readV(b);
 
-    vector <ll> a(n);
-    vector <ll> b(n);
-    readV(a);
-    readV(b);
-
-    for (int i = 0; i < n; i++) {
-        mxB = max(mxB, b[i]);
-        mx = max(mxB, a[i]);
-        // cout << mx << " ";
-        printab(mx, mxB);
+    ll mx=0, sum=0, res=0;
+    ll l = n<k ? n: k;
+    for (int i=0; i<l; i++) {
+        sum += a[i];
+        mx = *max_element(b.begin(), b.begin()+i+1); // {Wrong} O(n) dont use it inside loop use below method to avoid O(n2)  
+        mx = max(mx, b[i]); // {Correct}
+        res = max(res, sum + mx*(k-1-i));
     }
-    nl;
+    print(res);
 }
 
 int main() {
-    ll t;
-    cin >> t;
-
+    ll t = 1; cin >> t;
     while (t--) solve();
 }
