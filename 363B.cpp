@@ -23,7 +23,7 @@ void solve() {
             mn=sum;
             idx=i;
         }
-        sum = sum - vec[i]+vec[i+k];
+        sum = sum - vec[i] + vec[i+k];
     }
     print(idx+1);
 }
