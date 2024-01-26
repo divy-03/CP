@@ -19,22 +19,18 @@ void solve() {
     string str;
     cin >> str;
     
-    ll cnt1=0, cnt0=0;
-    for (auto ch: str) {
-        if (ch=='0') cnt0++;
-        else cnt1++;
+    int n = str.size();
+    vector <int> cnt(2);
+    for (char c : str) {
+        cnt[(int)(c-'0')] += 1; // count 1 and 0
     }
-    ll sum=0;
-    for (int i=0; i<str.size(); i++) {
-        if (str[i]=='0') {
-            if (cnt1==0) {sum+=str.size()-i;break;}
-            cnt1--;
-        } else {
-            if (cnt0==0) {sum+=str.size()-i;break;}
-            cnt0--;
-        }
+    vector <int> need(2);
+    int ans = n;
+    for (int i=0; i<n; i++) {
+        need[(int) (str[i]-'0')^1] += 1;
+        if (cnt[0]>=need[0] && cnt[1]>=need[1]) ans = n-1-i;
     }
-    cout << sum << endl;
+    print(ans);
 }
 
 int main() {
