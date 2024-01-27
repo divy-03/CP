@@ -16,27 +16,17 @@ typedef int long long ll;
 const int N = 100005;
 
 void solve() {
-    ll n;
-    cin >> n;
+    ll n, k;
+    cin >> n >> k;
     
-    vector<ll> vec(n+1, 0);
-    for (int i = 0, a; i < n; i += 1) {
-      cin >> a;
-      vec[a]++;
-    }
-    ll count=0, ans=0;
-    // debug(vec);
-    for (int i=0; i<=n; i++) {
-        ans += (vec[i] * (vec[i] - 1) / 2) * count;
-        ans += (vec[i] * (vec[i] - 1) * (vec[i] - 2)) / 6;
-        count += vec[i];
-        // cout << ans << " ";
-    }
-    print(ans);
+    while(n--){for (int i = 'a'; i < 'a'+k; i++) {
+        cout << char(i);
+    }}
+    nl;
 }
 
 int main() {
     int t = 1;
     cin >> t;
-    while (t--) {solve();}
+    while (t--) solve();
 }

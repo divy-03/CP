@@ -111,16 +111,35 @@ typedef int long long ll;
 #define YES cout << "YES" << "\n"
 #define NO cout << "NO" << "\n"
 
-const int N = 100005;
+std::vector<int> findDivisors(int number, int a) {
+    std::vector<int> divisors;
 
-void solve() {
-  cout << 7/3;
+    for (int i = 1; i <= number; ++i) {
+        if (number % i == 0 && i <= a) {
+            divisors.push_back(i);
+        }
+    }
+
+    return divisors;
 }
 
 int main() {
-    int t = 1;
-    while (t--) solve();
+    // Input the number for which you want to find divisors
+    int number, b;
+    std::cin >> number >> b;
+    int a = number/b +1;
+
+    // Find and print all divisors
+    std::vector<int> divisors = findDivisors(number, a);
+
+    std::cout << "Divisors of " << number << " are: ";
+    for (int divisor : divisors) {
+        std::cout << divisor << " ";
+    }
+    
+    return 0;
 }
+
 
 
 
