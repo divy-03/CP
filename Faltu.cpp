@@ -111,35 +111,30 @@ typedef int long long ll;
 #define YES cout << "YES" << "\n"
 #define NO cout << "NO" << "\n"
 
-std::vector<int> findDivisors(int number, int a) {
-    std::vector<int> divisors;
-
-    for (int i = 1; i <= number; ++i) {
-        if (number % i == 0 && i <= a) {
-            divisors.push_back(i);
-        }
-    }
-
-    return divisors;
+int lengthOfLongestSubstring(string s) {
+  if (s.empty()) return 0;
+  vector <int> alpha (27);
+  ll ans = 0, mx = 0;
+  for (int i = 0; i < s.size(); i++) {
+      if (alpha[s[i]-'a']==0) {alpha[s[i]-'a']++; ans++;}
+      else { 
+        mx = max(mx, ans);
+        for (int j = i - ans; j < i; j++) alpha[s[j] - 'a'] = 0;
+        i--;
+        ans=0;
+      }
+  }
+  return max(mx, ans);
 }
+
 
 int main() {
-    // Input the number for which you want to find divisors
-    int number, b;
-    std::cin >> number >> b;
-    int a = number/b +1;
+  string s;
+  cin >> s;
 
-    // Find and print all divisors
-    std::vector<int> divisors = findDivisors(number, a);
+  cout << lengthOfLongestSubstring(" ");
 
-    std::cout << "Divisors of " << number << " are: ";
-    for (int divisor : divisors) {
-        std::cout << divisor << " ";
-    }
-    
-    return 0;
 }
-
 
 
 
