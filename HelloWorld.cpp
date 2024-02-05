@@ -15,29 +15,16 @@ typedef int long long ll;
 
 const int N = 100005;
 
-ll ans(int n) {
-    if (n == 0 || n == 1) return 1;
-    else return n + ans(n - 1);
-}
-
-void solve() {
-    ll n;
-    cin >> n;
-    
-    vector<int> vec(n);
-    vector<int> cnt(2*n);
-    for (int i=0; i<n; i++) {
-        int a; cin >> a;
-        vec[i] = a-i;
-        cnt[n+vec[i]-1]++;
+void solve(char ch) {
+    for (char i='a'; i<=ch; i++) {
+        cout << i;
     }
-    ll a=0;
-    for (auto e: cnt) if (e>1) a += ans(e-1);
-    print(a);
+    nl;
 }
 
 int main() {
-    int t = 1;
-    cin >> t;
-    while (t--) solve();
+    string str = "hello";
+    for (char ch: str) {
+        solve(ch);
+    }
 }
