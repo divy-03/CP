@@ -97,6 +97,8 @@
 
 
                                          Credit for the pic: J5-daigada from deviantart
+*/
+/*
     excl - grey
 */
 #include <bits/stdc++.h>
@@ -111,30 +113,20 @@ typedef int long long ll;
 #define YES cout << "YES" << "\n"
 #define NO cout << "NO" << "\n"
 
-int lengthOfLongestSubstring(string s) {
-  if (s.empty()) return 0;
-  vector <int> alpha (27);
-  ll ans = 0, mx = 0;
-  for (int i = 0; i < s.size(); i++) {
-      if (alpha[s[i]-'a']==0) {alpha[s[i]-'a']++; ans++;}
-      else { 
-        mx = max(mx, ans);
-        for (int j = i - ans; j < i; j++) alpha[s[j] - 'a'] = 0;
-        i--;
-        ans=0;
-      }
-  }
-  return max(mx, ans);
-}
+const int N = 100005;
 
+void solve() {
+  print("My name is Divy Pathak");
+  print("My mother is so sweet");
+  print("My father is hero!"); 
+    
+}
 
 int main() {
-  string s;
-  cin >> s;
-
-  cout << lengthOfLongestSubstring(" ");
-
+    int t = 1;
+    while (t--) solve();
 }
+
 
 
 
