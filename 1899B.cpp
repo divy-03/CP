@@ -16,7 +16,7 @@ typedef int long long ll;
 const int N = 100005;
 
 const vector<vector<int>> div(N);
-for (int i = 1; i < N; i++) for (int j = 2 * i; j < N; j += i) div[j].push_back(i);
+// for (int i = 1; i < N; i++) for (int j = 2 * i; j < N; j += i) div[j].push_back(i);
 
 
 void solve() {
