@@ -1,51 +1,41 @@
+/*
+    excl - grey
+*/
 #include <bits/stdc++.h>
-#include <algorithm>
 using namespace std;
 
-#define printnl(a) cout << a << "\n"
-#define printab(a, b) cout << a << " " << b << "\n"
-#define ll long long
+typedef int long long ll;
+#define print(a) cout << a << "\n";
+#define printab(a,b) cout << a << " " << b << "\n";
+#define readV(vec) for (auto &e: vec) cin >> e;
+#define debug(vec) for (auto &e: vec) {cout << e << " ";} cout << "\n";
+#define nl cout << "\n"
+#define YES cout << "YES" << "\n"
+#define NO cout << "NO" << "\n"
 
-void solve()
-{
-    int n, a;
+const int N = 100005;
+
+vector<vector<int>> calculateDivisors(int N) {
+    vector<vector<int>> div(N);
+    for (int i = 1; i < N; i++) for (int j = 2 * i; j < N; j += i) div[j].push_back(i);
+    return div;
+}
+
+
+void solve() {
+    ll n;
     cin >> n;
-    int arr[n];
-    int ans = 0;
+    
+    vector<ll> vec(n); readV(vec);
+    for (int k=0; k<n; k++) {
+        if (n%k==0) {
 
-    for (int i = 0; i < n; i++)
-    {
-        cin >> arr[i];
-    }
-
-    // sort(arr, arr + n);
-
-    for (int i = n; i >= 1; i--)
-    {
-        if (n % i == 0)
-        {
-            // cout << i << " ";
-            a = n / i;
-            int sum = 0;
-            // cout << a << " ";
-            for (int j = 0; j < a; j++)
-            {
-                sum = abs(sum - arr[j] + arr[n - j - 1]);
-            }
-            ans = max(ans, sum);
         }
     }
-
-    cout << ans;
-    cout << endl;
 }
-int main()
-{
-    int t;
-    cin >> t;
 
-    while (t--)
-    {
-        solve();
-    }
+int main() {
+    int t = 1;
+    cin >> t;
+    while (t--) solve();
 }
