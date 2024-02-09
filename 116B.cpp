@@ -15,24 +15,17 @@ typedef int long long ll;
 
 const int N = 100005;
 
-const vector<vector<int>> div(N);
-for (int i = 1; i < N; i++) for (int j = 2 * i; j < N; j += i) div[j].push_back(i);
-
-
 void solve() {
-    ll n;
-    cin >> n;
+    ll n, k;
+    cin >> n >> k;
     
-    vector<ll> vec(n); readV(vec);
-    for (int k=0; k<n; k++) {
-        if (n%k==0) {
+    vector <string> grid(n);
+    readV(grid);
 
-        }
-    }
+    
 }
 
 int main() {
     int t = 1;
-    cin >> t;
     while (t--) solve();
 }

@@ -10,25 +10,21 @@ typedef int long long ll;
 #define readV(vec) for (auto &e: vec) cin >> e;
 #define debug(vec) for (auto &e: vec) {cout << e << " ";} cout << "\n";
 #define nl cout << "\n"
-#define YES cout << "YES" << "\n"
-#define NO cout << "NO" << "\n"
 
 const int N = 100005;
-
-const vector<vector<int>> div(N);
-for (int i = 1; i < N; i++) for (int j = 2 * i; j < N; j += i) div[j].push_back(i);
-
 
 void solve() {
     ll n;
     cin >> n;
     
-    vector<ll> vec(n); readV(vec);
-    for (int k=0; k<n; k++) {
-        if (n%k==0) {
-
-        }
+    vector<ll> vec(n);
+    cin >> vec[0];
+    for (int i=1; i<n; i++) {
+        int a; cin >> a;
+        if (a>=vec[i-1] || a==0) {vec[i] = vec[i-1] + a;}
+        else {print(-1); return;}
     }
+    debug(vec);
 }
 
 int main() {

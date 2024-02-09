@@ -15,24 +15,20 @@ typedef int long long ll;
 
 const int N = 100005;
 
-const vector<vector<int>> div(N);
-for (int i = 1; i < N; i++) for (int j = 2 * i; j < N; j += i) div[j].push_back(i);
-
-
 void solve() {
-    ll n;
-    cin >> n;
-    
-    vector<ll> vec(n); readV(vec);
-    for (int k=0; k<n; k++) {
-        if (n%k==0) {
+    ll n; cin >> n;
+    vector<ll> shops(n); readV(shops);
+    sort(shops.begin(), shops.end());
 
-        }
+    ll m; cin >> m;
+    for (int i = 0; i < m; i++) {
+        ll money; cin >> money;
+        auto it = upper_bound(shops.begin(), shops.end(), money);
+        print(it - shops.begin());
     }
 }
 
 int main() {
     int t = 1;
-    cin >> t;
     while (t--) solve();
 }
