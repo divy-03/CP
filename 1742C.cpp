@@ -17,7 +17,6 @@ void solve()
         for (int j = 0; j < 8; j++)
         {
             str = arr[i];
-            // cout << str << endl;
             if (j == 0) countR = 0;
             if (str[j] == 'R') countR++;
             

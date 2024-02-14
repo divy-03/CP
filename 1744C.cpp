@@ -15,32 +15,22 @@ void solve() {
     string t;
     char l;
     cin >> n >> l >> t;
-    ll frontG;
-    for (int i = 0; i < n; i++) {
-        if (t[i] == 'g') {
-            frontG = i;
-            break;
+    if (l=='g') {print(0); return;}
+    int mx = 0;
+    for (int i=0; i<n-1; i++) {
+        for (int j=i+1; j<n; j++) {
+            if (t[i]==l && t[j]=='g') {
+                mx = max(mx, j-i);
+                i=j;
+            }
         }
     }
-    // print(frontG);
-    ll lastL;
-    for (int i = 0; i < n; i++) {
-        if (t[i] == l) {
-            lastL = i;
-        }
-    }
-    // print(lastL);
-    if (l == 'g') {
-        print(0);
-        return;
-    }
-    for (int i = lastL; i < n; i++) {
-        if (t[i] == 'g'){
-            print(i-lastL);
-            return;
-        }
-    }
-    print(n-lastL+frontG);
+    int x, y;
+    for (int i=n-1; i>=0; i--) if (t[i]==l) {x=i;break;}
+    for (int i=n-1; i>=0; i--) if (t[i]=='g') {y=i; break;}
+    for (int i=0; i<n; i++) if (t[i]=='g') {x=x>y?abs(n-x+i):0; break;}
+    print(max(mx, x));
+    // print(x);
 }
 
 int main() {
