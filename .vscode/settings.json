@@ -91,6 +91,7 @@
     "typeindex": "cpp",
     "utility": "cpp",
     "valarray": "cpp",
-    "iostream": "cpp"
+    "iostream": "cpp",
+    "random": "cpp"
   }
 }
