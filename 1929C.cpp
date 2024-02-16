@@ -18,9 +18,14 @@ const int N = 100005;
 void solve() {
     ll k, x, a;
     cin >> k >> x >> a;
-    
-    ll v = a-x+1;
-    if (a-x+k > a && a-x > 0) YES;
+    ll ans = 0;
+    for(int i=1; i<=x+1; i++)
+    {
+        int now = ans / (k-1) + 1;
+        ans += now;
+        if (ans > a) break;
+    }
+    if (ans <= a) YES;
     else NO;
 }
 
