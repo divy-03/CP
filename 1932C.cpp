@@ -37,7 +37,8 @@ void solve() {
     vector <ll> c;
     for (int i=b.size()-1; i>=0; i--) {
         pro = pro * (b[i]%m);
-        c.push_back(pro%m);
+        pro = pro%m;
+        c.push_back(pro);
     }
     for (int i = c.size()-1; i>=0; i--) cout << abs(c[i]) << " ";
     nl;
