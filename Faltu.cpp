@@ -116,10 +116,10 @@ typedef int long long ll;
 const int N = 100005;
 
 void solve() {
-  print("My name is Divy Pathak");
-  print("My mother is so sweet");
-  print("My father is hero!"); 
-    
+  // print("My name is Divy Pathak");
+  // print("My mother is so sweet");
+  // print("My father is hero!"); 
+  print(1%6);
 }
 
 int main() {
