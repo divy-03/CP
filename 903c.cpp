@@ -1,10 +1,7 @@
-/*
-    excl - grey
-*/
 #include <bits/stdc++.h>
 using namespace std;
 
-typedef int long long ll;
+typedef long long int ll;
 #define print(a) cout << a << "\n";
 #define printab(a,b) cout << a << " " << b << "\n";
 #define readV(vec) for (auto &e: vec) cin >> e;
@@ -16,29 +13,26 @@ typedef int long long ll;
 const int N = 100005;
 
 void solve() {
-    ll n, k;
-    cin >> n >> k;
+    ll n;
+    cin >> n;
     
-    vector<ll> a(n); readV(a);
-    vector<ll> b;
-    ll c = *max_element(a.begin(), a.end());
-    for (int i=0; i<k; i++) {
-        int x;
-        cin >> x;
-        ll y = 1LL << x;
-        if (y<=c) b.push_back(y);
+    vector<ll> vec(n); readV(vec);
+    
+    map <ll, ll> freq;
+    for (int e: vec) {
+        freq[e]++;
     }
-
-    for (int i=0; i<b.size(); i++) {
-        for (int j=0; j<n; j++) {
-            if (a[j]%b[i]==0) a[j] += b[i]/2;
+    int mx=0;
+    for (auto it=freq.begin(); it!=freq.end(); ++it) {
+        if (it->second > mx) {
+            mx = it-> second;
         }
     }
-    debug(a);
+    cout << mx;
 }
 
 int main() {
     int t = 1;
-    cin >> t;
     while (t--) solve();
+    return 0;
 }

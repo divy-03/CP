@@ -16,25 +16,16 @@ typedef int long long ll;
 const int N = 100005;
 
 void solve() {
-    ll n, k;
-    cin >> n >> k;
+    ll n;
+    cin >> n;
     
-    vector<ll> a(n); readV(a);
-    vector<ll> b;
-    ll c = *max_element(a.begin(), a.end());
-    for (int i=0; i<k; i++) {
-        int x;
-        cin >> x;
-        ll y = 1LL << x;
-        if (y<=c) b.push_back(y);
+    vector<ll> vec(2*n); readV(vec);
+    sort(vec.begin(), vec.end());
+    ll sum=0;
+    for (int i=0; i<2*n; i += 2) {
+        sum += vec[i];
     }
-
-    for (int i=0; i<b.size(); i++) {
-        for (int j=0; j<n; j++) {
-            if (a[j]%b[i]==0) a[j] += b[i]/2;
-        }
-    }
-    debug(a);
+    print(sum);
 }
 
 int main() {
