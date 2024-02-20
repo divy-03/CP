@@ -5,15 +5,8 @@
 using namespace std;
 
 typedef int long long ll;
-#define print(a) cout << a << "\n";
-#define printab(a,b) cout << a << " " << b << "\n";
 #define readV(vec) for (auto &e: vec) cin >> e;
-#define debug(vec) for (auto &e: vec) {cout << e << " ";} cout << "\n";
 #define nl cout << "\n"
-#define YES cout << "YES" << "\n"
-#define NO cout << "NO" << "\n"
-
-const int N = 100005;
 
 void solve() {
     ll n, m;
@@ -24,24 +17,17 @@ void solve() {
     vector<ll> b;
     ll cr = 1, cl = 0;
     for (char ch: s) {
-        if (ch == 'R') {
-            b.push_back(a[n-cr]);
-            cr++;
-        }
-        else {
-            b.push_back(a[cl]);
-            cl++;
-        }
+        if (ch == 'R') {b.push_back(a[n-cr]); cr++;}
+        else {b.push_back(a[cl]); cl++;}
     }
     ll pro = 1;
     vector <ll> c;
     for (int i=b.size()-1; i>=0; i--) {
-        pro = pro * (b[i]%m);
-        pro = pro%m;
+        pro *= (b[i]%m);
+        pro %= m;
         c.push_back(pro);
     }
-    for (int i = c.size()-1; i>=0; i--) cout << abs(c[i]) << " ";
-    nl;
+    for (int i = c.size()-1; i>=0; i--) cout << c[i] << " "; nl;
 }
 
 int main() {

@@ -116,10 +116,15 @@ typedef int long long ll;
 const int N = 100005;
 
 void solve() {
-  // print("My name is Divy Pathak");
-  // print("My mother is so sweet");
-  // print("My father is hero!"); 
-  print(1%6);
+  ll n; cin >> n;
+  vector<ll> vec(n); readV(vec);
+  vector<ll> preSum(vec.size());
+  partial_sum(vec.begin(), vec.end(), preSum.begin());
+  vector<ll> sufSum(vec.size());
+  partial_sum(vec.rbegin(), vec.rend(), sufSum.rbegin());
+  debug(vec);
+  debug(preSum);
+  debug(sufSum);
 }
 
 int main() {

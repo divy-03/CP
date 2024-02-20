@@ -16,17 +16,17 @@ typedef int long long ll;
 const int N = 100005;
 
 void solve() {
-    ll n;
+    string n;
     cin >> n;
-    vector<ll> a(n); readV(a);
-    ll m;
-    cin >> m;
-    vector<ll> b(m); readV(b);
-    partial_sum(a.begin(), a.end(), a.begin());
-    partial_sum(b.begin(), b.end(), b.begin());
-    ll p = *max_element(a.begin(), a.end());    
-    ll q = *max_element(b.begin(), b.end());    
-    print(max(0LL, p) + max(0LL, q));
+    
+    ll a=0, b=0;
+    for (char ch: n) {
+        if (ch=='A') a++;
+        else b++;
+    }
+    char res = a>b ? 'A' : 'B';
+    print(res);
+    
 }
 
 int main() {

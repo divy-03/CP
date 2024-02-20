@@ -18,15 +18,19 @@ const int N = 100005;
 void solve() {
     ll n;
     cin >> n;
-    vector<ll> a(n); readV(a);
-    ll m;
-    cin >> m;
-    vector<ll> b(m); readV(b);
-    partial_sum(a.begin(), a.end(), a.begin());
-    partial_sum(b.begin(), b.end(), b.begin());
-    ll p = *max_element(a.begin(), a.end());    
-    ll q = *max_element(b.begin(), b.end());    
-    print(max(0LL, p) + max(0LL, q));
+    
+    ll x = n/10;
+    ll ini = 45, ans = 0, sum=0;
+    for (int i=0; i<x; i++) {
+        if (i%10==0) {
+            ans = ini;
+            ini += 10;
+        }
+        sum += ans;
+        ans = ans+10;
+        cout << ans << " ";
+    }
+    print(sum);
 }
 
 int main() {
