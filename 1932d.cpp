@@ -18,25 +18,37 @@ const int N = 100005;
 void solve() {
     ll n;
     cin >> n;
-    
-    char chr; cin >> chr;
-    vector<ll> t; vector<ll> c; vector<ll> s; vector<ll> d; vector<ll> h;
 
-    for (int i=0; i<2*n; i++) {
-        string str; cin >> str;
-        if (str[1]==chr) t.push_back(str[0]-'0'); 
-        if (str[1]=='C' && chr!='C') c.push_back(str[0]-'0'); 
-        if (str[1]=='S' && chr!='S') s.push_back(str[0]-'0'); 
-        if (str[1]=='D' && chr!='D') d.push_back(str[0]-'0'); 
-        if (str[1]=='H' && chr!='H') h.push_back(str[0]-'0'); 
+    char chr;
+    cin >> chr;
+    map<char, vector<ll>> cards;
+
+    for (int i = 0; i < 2 * n; i++) {
+        string str;
+        cin >> str;
+        char suit = str[1];
+        char rank = str[0];
+
+        if (suit == 'C' || suit == 'S' || suit == 'D' || suit == 'H') {
+            cards[suit].push_back(rank - '0');
+        }
     }
-    sort(t.begin(), t.end());
-    sort(c.begin(), c.end());
-    sort(s.begin(), s.end());
-    sort(d.begin(), d.end());
-    sort(h.begin(), h.end());
 
+    for (auto &k : cards) {
+        sort(k.second.begin(), k.second.end());
+    }
 
+    // for (const auto& k : cards) {
+    //     cout << k.first << ": ";
+    //     for (ll rank : k.second) {
+    //         cout << rank << " ";
+    //     }
+    //     cout << endl;
+    // }
+
+    for (ll rank: cards[chr]) {
+        
+    }
 }
 
 int main() {
