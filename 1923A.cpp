@@ -13,27 +13,28 @@ typedef int long long ll;
 #define YES cout << "YES" << "\n"
 #define NO cout << "NO" << "\n"
 
-void solve() {
-    string str;
-    cin >> str;
-    ll m;
-    cin >> m;
-    vector<ll> pre;
+const int N = 100005;
 
-    ll x=0;
-    pre.push_back(0);
-    for (int i=1; i<str.size(); i++) {
-        if (str[i]==str[i-1]) x++;
-        pre.push_back(x);
+void solve() {
+    ll n;
+    cin >> n;
+    
+    vector<ll> vec(n);
+    ll ie, is;
+    for (int i = 0; i<n; i++) {
+        int a;
+        cin >> a;
+        if (a==1) ie = i;
+        vec[i]=a;
     }
-    while (m--) {
-        ll a, b;
-        cin >> a >> b;
-        print(pre[b-1]-pre[a-1]);
-    }
+    for (int i=0; i<n; i++) if (vec[i]==1) {is=i; break;}
+    ll cnt=0;
+    for (int i = is; i<ie; i++) if (vec[i]==0) cnt++;
+    print(cnt);
 }
 
 int main() {
     int t = 1;
+    cin >> t;
     while (t--) solve();
 }
