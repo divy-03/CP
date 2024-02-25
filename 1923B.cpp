@@ -20,17 +20,15 @@ void solve() {
     }
 
     partial_sum(b.begin(), b.end(), b.begin());
-    vector <ll> c(n);
     for (int i = 0; i<n; i++) {
-        c[i] = (i+1)*k;
-    }
-    for (int i = 0; i<n; i++) {
-        if (b[i]>c[i]) {NO; return;}
+        if (b[i]>(i+1)*k) {NO; return;}
     }
     YES;
 }
 
 int main() {
+    cin.sync_with_stdio(0);
+    cin.tie(0);
     int t = 1;
     cin >> t;
     while (t--) solve();
