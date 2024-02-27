@@ -92,6 +92,11 @@
     "utility": "cpp",
     "valarray": "cpp",
     "iostream": "cpp",
-    "random": "cpp"
+    "random": "cpp",
+    "vector": "cpp",
+    "forward_list": "cpp",
+    "unordered_map": "cpp",
+    "unordered_set": "cpp",
+    "regex": "cpp"
   }
 }
