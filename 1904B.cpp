@@ -19,13 +19,12 @@ void solve() {
     partial_sum(b.begin(), b.end(), c.begin());
 
     map<ll, ll> mp;
-    mp[b[n-1]] = n-1;
+    mp[b[n-1]] = n-1; // last element contains last index
     for (int i=n-2; i>=0; i--) {
-        if (c[i] >= b[i+1]) mp[b[i]] = mp[b[i+1]];
-        else mp[b[i]] = i;
+        if (c[i] >= b[i+1]) mp[b[i]] = mp[b[i+1]]; // map index of last element
+        else mp[b[i]] = i; // map of index of its own
     }
     for (auto &e: a) cout << mp[e] << " "; nl;
-
 }
 
 int main() {
