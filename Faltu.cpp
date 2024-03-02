@@ -116,15 +116,8 @@ typedef int long long ll;
 const int N = 100005;
 
 void solve() {
-  ll n; cin >> n;
-  vector<ll> vec(n); readV(vec);
-  vector<ll> preSum(vec.size());
-  partial_sum(vec.begin(), vec.end(), preSum.begin());
-  vector<ll> sufSum(vec.size());
-  partial_sum(vec.rbegin(), vec.rend(), sufSum.rbegin());
-  debug(vec);
-  debug(preSum);
-  debug(sufSum);
+  string str; cin >> str;
+  cout << (int)'0' - str[str.size()-2];
 }
 
 int main() {

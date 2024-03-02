@@ -20,18 +20,10 @@ void solve() {
     ll n;
     cin >> n;
     
-    vector<ll> vec(n);
-    ll sum=0, cnt=0;
-    for (auto &e: vec) {
-        cin >> e;
-        sum += e;
-        if (e%3==1) cnt++;
-    }
-    if (sum%3==0) {print(0); return;}
-    if (n==1) {print(1); return;}
-    if (sum%3==1 && cnt) {print(1); return;}
-    if (sum%3==2) {print(1); return;}
-    print(2);
+    vector<ll> vec(n); readV(vec);
+    sort(vec.begin(), vec.end());
+    ll ans = abs(vec[0]-vec[n-1]) + abs(vec[n-1] - vec[1]) + abs(vec[1]-vec[n-2]) + abs(vec[n-2]-vec[0]);
+    print(ans);
 }
 
 int main() {

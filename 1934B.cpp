@@ -20,18 +20,7 @@ void solve() {
     ll n;
     cin >> n;
     
-    vector<ll> vec(n);
-    ll sum=0, cnt=0;
-    for (auto &e: vec) {
-        cin >> e;
-        sum += e;
-        if (e%3==1) cnt++;
-    }
-    if (sum%3==0) {print(0); return;}
-    if (n==1) {print(1); return;}
-    if (sum%3==1 && cnt) {print(1); return;}
-    if (sum%3==2) {print(1); return;}
-    print(2);
+    
 }
 
 int main() {
