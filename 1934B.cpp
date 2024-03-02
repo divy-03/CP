@@ -19,8 +19,6 @@ const int N = 100005;
 void solve() {
     ll n;
     cin >> n;
-    
-    
 }
 
 int main() {
