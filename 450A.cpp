@@ -5,21 +5,6 @@ using namespace std;
 #define printab(a, b) cout << a << " " << b << "\n"
 #define ll long long
 
-int ansIdx (int child[], int i, int m) {
-    int count = 0;
-    int ans = 0;
-    int ansIdx = 0;
-    while(child[i]>0){
-        child[i] -= m;
-        count++;
-    }
-    ans = max(count, ans);
-    if(ans == count) {
-        ansIdx = i+1;
-    }
-    return ansIdx;
-}
-
 void solve()
 {
     int n, m;
