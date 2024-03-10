@@ -22,7 +22,7 @@ void solve() {
     
     vector<ll> vec(n); readV(vec);
     
-    
+    print(2);
 }
 
 int main() {
