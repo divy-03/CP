@@ -17,22 +17,16 @@ typedef int long long ll;
 const int N = 100005;
 
 void solve() {
-    string s;
-    cin >> s;
+    ll n;
+    cin >> n;
     
-    ll ib = -1, iB = -1;
-    for (int i=0; i<s.size(); i++) {
-        if (ib != -1 && s[i]=='b') cout << ib << " ";
-        if (iB != -1 && s[i]=='B') cout << iB << " ";
-        if (isupper(s[i])) iB = i;
-        else ib = i;
-    }
-    print(s);
+    vector<ll> vec(n); readV(vec);
+    
+    
 }
 
 int main() {
     fastio;
     int t = 1;
-    cin >> t;
     while (t--) solve();
 }

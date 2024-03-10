@@ -105,8 +105,9 @@
 using namespace std;
 
 typedef int long long ll;
-#define print(a) cout << a << "\n";
-#define printab(a,b) cout << a << " " << b << "\n";
+#define fastio ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0)
+#define print(a) cout << a << "\n"
+#define printab(a,b) cout << a << " " << b << "\n"
 #define readV(vec) for (auto &e: vec) cin >> e;
 #define debug(vec) for (auto &e: vec) {cout << e << " ";} cout << "\n";
 #define nl cout << "\n"
@@ -116,14 +117,17 @@ typedef int long long ll;
 const int N = 100005;
 
 void solve() {
-  string str; cin >> str;
-  cout << (int)'0' - str[str.size()-2];
+    bool tr =  isupper('a');
+    cout << tr;
 }
 
 int main() {
+    fastio;
     int t = 1;
     while (t--) solve();
 }
+
+
 
 
 
