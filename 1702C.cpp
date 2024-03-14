@@ -11,17 +11,21 @@ typedef int long long ll;
 #define NO cout << "NO" << "\n"
 
 void solve() {
-    ll n;
-    cin >> n;
+    ll n, k;
+    cin >> n >> k;
     
     vector<ll> vec(n); readV(vec);
-    for (int i=0; i<n-2 && vec[i]>=0; i++) {
-        ll a = vec[i];
-        vec[i] -= a;
-        vec[i+1] -= a*2;
-        vec[i+2] -= a;
-    }  
-    for (auto &e: vec) if (e != 0) {NO; return;} YES;
+
+    map <ll, pair<ll, ll>> mp;
+    for (int i=0; i<n; i++) mp[vec[i]].first = i+1;
+    for (int i=n-1; i>=0; i--) mp[vec[i]].second = i+1;
+
+    while (k--) {
+        ll a, b;
+        cin >> a >> b;
+        if (mp[a].second < mp[b].first && mp[a].second!=0) YES;
+        else NO;
+    }
 }
 
 int main() {

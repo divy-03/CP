@@ -15,7 +15,7 @@ void solve() {
         ll score = min((n+6) / 7, 2*mid)*t + l*mid;
         if (score < p) start = mid + 1; else end = mid;
     }
-    printnl(n-start);
+    printnl(n-start); 
 }
 
 int main() {
