@@ -26,6 +26,13 @@ void solve() {
     ll ans = 0;
     for (auto &e: vec) ans += mp[e]/e;
     
+    // Easy solution---------------------------------------------------
+    // ll ans = 0, freq = 1;
+    // for (auto &e: vec) {
+    //     if (e <= freq) {ans++; freq = 0;}
+    //     freq++;
+    // }
+
     print(ans);
 }
 
