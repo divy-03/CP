@@ -20,19 +20,15 @@ void solve() {
     cin >> n;
     
     vector<ll> vec(n); readV(vec);
-    ll ans = 0;
- 
     sort(vec.begin(), vec.end());
-    auto it = unique(vec.begin(), vec.end());
-    vec.resize(distance(vec.begin(), it));
-    ll newN = it - vec.begin();
-
-    for (int i=0; i+1<newN; i++) {
-        auto it2 = upper_bound(vec.begin(), vec.end(), vec[i]+n-1) - vec.begin();
-        ll ind = it2-i-1;
-        ans = max(ans,ind);
+    ll cnt = 0, mx = 0;
+    // debug(vec);
+    for (int i=0; i<n-1; i++) {
+        if (vec[i] == vec[i+1]-1) cnt++;
+        else cnt = 0;
+        mx = max(cnt, mx);
     }
-    print(ans+1);
+    print(mx+1);
 }
 
 int main() {
