@@ -10,31 +10,25 @@ typedef int long long ll;
 #define printab(a,b) cout << a << " " << b << "\n"
 #define readV(vec) for (auto &e: vec) cin >> e;
 #define debug(vec) for (auto &e: vec) {cout << e << " ";} cout << "\n";
+#define nl cout << "\n"
 #define YES {cout << "YES" << "\n"; return;}
 #define NO {cout << "NO" << "\n"; return;}
 
+const int N = 100005;
+
 void solve() {
-    ll n;
-    cin >> n;
+    ll a, b, c;
+    cin >> a >> b >> c;
     
-    set <ll> st;
-    map <ll, ll> mp;
-    for (int i=0; i<4*n; i++) {
-        ll a; cin >> a; 
-        st.insert(a);
-        mp[a]++;
-    }
-    for (auto &e: st) if (mp[e]%2) NO 
-    if (st.size()==1 || st.size()==2) YES
-    vector <ll> vec(st.begin(), st.end());
-    ll s = vec.size()-1;
-    ll pro = vec[0]*vec[s];
-    for (int i=0; i<(s+2)/2; i++) if (vec[i]*vec[s-i]!=pro) NO
-    YES
+    ll x = 3 - b%3;
+    if (c<x && b%3!=0) {print(-1); return;}
+    ll y = (b+c)%3==0 ? (b+c)/3 : (b+c)/3+1;
+    print(a + y);
 }
 
 int main() {
     fastio;
-    int t = 1; cin >> t;
-    while (t--) solve();
+    int t = 1;
+    cin >> t;
+    while (t--) {solve();}
 }

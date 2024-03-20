@@ -21,19 +21,14 @@ void solve() {
     cin >> n;
     
     vector<ll> vec(n);
-    ll idx=0, cnt1=0, cnt2=0, cnt0=0;
     for (int i=0; i<n; i++) {
-        int a; cin >> a; vec[i]=a;
-        if (a==1) {idx = i; cnt1++;}
+        cin >> vec[i];
     }
-    for (int i=idx; i>=0; i--) {
-        if (vec[i]==0) break;
-        cnt2++;
+    // debug(vec);
+    ll cnt1 = 0, cnt0 = 0;
+    for (int i=0; i<n; i++) {
+        if (vec[i]==1) {cnt1++;}
     }
-    for (int i=idx; i<n; i++) cnt0++;
-    if ((cnt1-cnt2) >= cnt0) print(cnt1-cnt2);
-    else print(cnt0);
-    // printab(cnt1, cnt2);
 }
 
 int main() {

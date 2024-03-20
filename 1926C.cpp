@@ -28,7 +28,6 @@ void solve() {
         }
         sum += ans;
         ans = ans+10;
-        cout << ans << " ";
     }
     print(sum);
 }

@@ -1,5 +1,5 @@
 /*
-    excl - grey
+    excl - grey -> Use Binary Search if array is sorted
 */
 #include <bits/stdc++.h>
 using namespace std;
@@ -9,41 +9,30 @@ typedef int long long ll;
 #define print(a) cout << a << "\n"
 #define printab(a,b) cout << a << " " << b << "\n"
 #define readV(vec) for (auto &e: vec) cin >> e;
-#define debug(vec) for (auto &e: vec) {cout << e << " ";} cout << "\n";
 #define nl cout << "\n"
-#define YES {cout << "YES" << "\n"; return;}
-#define NO {cout << "NO" << "\n"; return;}
-
-const int N = 100005;
 
 void query(const vector<ll> &pre) {
     ll q1, q2;
     cin >> q1 >> q2;
 
-    // for (auto &e: pre) {
-        // if (e>=q1 && e < q2) {printab(e, e+1); return;}
-    // }
     auto it = lower_bound(pre.begin(), pre.end(), q1);
+
     if (it != pre.end() && *it < q2) printab(*it, *it+1);
     else print("-1 -1");
 }
 
 void solve() {
-    ll n;
-    cin >> n;
+    ll n; cin >> n;
     
     vector<ll> vec(n); readV(vec);
-    
     vector<ll> pre;
+
     for (int i=0; i<n-1; i++) {
         if (vec[i]!=vec[i+1]) {
             pre.emplace_back(i+1);
         }
     }
-    // debug(pre);
-    
-    ll m; 
-    cin >> m;
+    ll m; cin >> m;
     while (m--) {
         query(pre);
     }
