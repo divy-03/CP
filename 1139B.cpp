@@ -3,26 +3,18 @@ using namespace std;
 
 typedef int long long ll;
 #define print(a) cout << a << "\n"
-#define printab(a, b) cout << a << " " << b << "\n"
-#define readV(vec) for (auto &e: vec) cin >> e;
-#define debug(vec) for (auto &e: vec) cout << e << " ";
-#define nl cout << "\n"
-#define YES cout << "YES\n"
-#define NO cout << "NO\n"
+#define readV(vec) for (auto &e : vec) cin >> e;
 
-void solve() {
-    ll n, sum = 0;
+int main()
+{
+    ll n;
     cin >> n;
 
-    vector <ll> choco(n);
+    vector<ll> choco(n);
     readV(choco);
-    // debug(choco);
-    for (int i = 0; i < n; i++) {
-        
-    }
- 
-}
+    reverse(choco.begin(), choco.end());
 
-int main() {
-    solve();
+    for (ll i = 0; i < n - 1; i++) if (choco[i] <= choco[i + 1]) choco[i + 1] = choco[i]!=0 ? choco[i] - 1 : 0;
+    ll sum = accumulate(choco.begin(), choco.end(), 0LL);
+    print(sum);
 }

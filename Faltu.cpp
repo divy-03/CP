@@ -111,21 +111,27 @@ typedef int long long ll;
 #define readV(vec) for (auto &e: vec) cin >> e;
 #define debug(vec) for (auto &e: vec) {cout << e << " ";} cout << "\n";
 #define nl cout << "\n"
-#define YES cout << "YES" << "\n"
-#define NO cout << "NO" << "\n"
+#define YES {cout << "YES" << "\n"; return;}
+#define NO {cout << "NO" << "\n"; return;}
 
 const int N = 100005;
 
 void solve() {
-    bool tr =  isupper('a');
-    cout << tr;
+    ll n;
+    cin >> n;
+    
+    vector<ll> vec(n); readV(vec);
+    debug(vec);
+    
 }
 
 int main() {
     fastio;
     int t = 1;
+    cin >> t;
     while (t--) solve();
 }
+
 
 
 
