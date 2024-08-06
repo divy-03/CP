@@ -21,7 +21,9 @@ void solve() {
         freq[e-1]++;      
     }
     for (auto &e: freq) if (e==1) ans++;
-    print((ans/2)+1);
+    // print((ans/2)+1);
+    debug(freq);
+    nl;
 }
 
 int main() {
