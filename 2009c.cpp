@@ -17,27 +17,24 @@ typedef int long long ll;
 const int N = 100005;
 
 void solve() {
-  int n;
-  cin >> n;
-  vector<string> strs(n); readV(strs);
+    ll x, y, k;
+    cin >> x >> y >> k;
     
-  string ans = "";
-    int count = 0;
-    sort(strs.begin(), strs.end());
-    for (int j = 0; j<strs[0].size();  j++) {
-      for (int i = 0; i<strs.size(); i++) {
-        if (strs[0][j] == strs[i][j]) {
-          count++;
-        }
-      }
-      cout << count << " ";
-      if (count == strs.size()) ans += strs[0][j];
-      else break;
-      count = 0;
-    }
+    // printab(x/k + x%k, y/k + y%k);
+    int ans = x/k + x%k + y/k + y%k;
+    int x1 = x/k;
+    int y1 = y/k;
+    if (x%k) x1++;
+    if (x%k) y1++;
+    int a = abs(x1-y1);
+    ans += a;
     print(ans);
+
 }
 
 int main() {
-  solve();
+    fastio;
+    int t = 1;
+    cin >> t;
+    while (t--) solve();
 }

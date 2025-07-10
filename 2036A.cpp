@@ -16,28 +16,21 @@ typedef int long long ll;
 
 const int N = 100005;
 
-void solve() {
-  int n;
-  cin >> n;
-  vector<string> strs(n); readV(strs);
+string solve() {
+    ll n;
+    cin >> n;
     
-  string ans = "";
-    int count = 0;
-    sort(strs.begin(), strs.end());
-    for (int j = 0; j<strs[0].size();  j++) {
-      for (int i = 0; i<strs.size(); i++) {
-        if (strs[0][j] == strs[i][j]) {
-          count++;
-        }
-      }
-      cout << count << " ";
-      if (count == strs.size()) ans += strs[0][j];
-      else break;
-      count = 0;
+    vector<ll> vec(n); readV(vec);
+    for (int i = 0; i<n-1; i++) {
+        int a = abs(vec[i] - vec[i+1]);
+        if ( a != 5 && a != 7) return "NO";
     }
-    print(ans);
+    return "YES";
 }
 
 int main() {
-  solve();
+    fastio;
+    int t = 1;
+    cin >> t;
+    while (t--) print(solve());
 }
