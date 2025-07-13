@@ -11,16 +11,17 @@ typedef int long long ll;
 #define readV(vec) for (auto &e: vec) cin >> e;
 #define debug(vec) for (auto &e: vec) {cout << e << " ";} cout << "\n";
 #define nl cout << "\n"
-#define YES {cout << "YES" << "\n"; return;}
-#define NO {cout << "NO" << "\n"; return;}
+#define YES cout << "YES" << "\n"
+#define NO cout << "NO" << "\n"
 
 const int N = 100005;
 
 void solve() {
-    string s;
-    cin >> s;
-    
-    
+    ll x, a, b;
+    cin >> x >> a >> b;
+
+    if (x>min(a, b) && x<max(a, b)) NO;
+    else YES;
 }
 
 int main() {

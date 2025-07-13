@@ -11,8 +11,8 @@ typedef int long long ll;
 #define readV(vec) for (auto &e: vec) cin >> e;
 #define debug(vec) for (auto &e: vec) {cout << e << " ";} cout << "\n";
 #define nl cout << "\n"
-#define YES {cout << "YES" << "\n"; return;}
-#define NO {cout << "NO" << "\n"; return;}
+#define YES cout << "Yes" << "\n"
+#define NO cout << "No" << "\n"
 
 const int N = 100005;
 
@@ -20,12 +20,21 @@ void solve() {
     string s;
     cin >> s;
     
-    
+    stack <char> st;
+
+    for (char ch: s) {
+        if (!st.empty()){
+            if (st.top() == ch) st.pop();
+            else st.push(ch);
+        } else st.push(ch);
+    }
+
+    if (st.empty()) YES;
+    else NO; 
 }
 
 int main() {
     fastio;
     int t = 1;
-    cin >> t;
     while (t--) solve();
 }

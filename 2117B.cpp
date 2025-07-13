@@ -11,16 +11,23 @@ typedef int long long ll;
 #define readV(vec) for (auto &e: vec) cin >> e;
 #define debug(vec) for (auto &e: vec) {cout << e << " ";} cout << "\n";
 #define nl cout << "\n"
-#define YES {cout << "YES" << "\n"; return;}
-#define NO {cout << "NO" << "\n"; return;}
+#define YES cout << "YES" << "\n"
+#define NO cout << "NO" << "\n"
 
 const int N = 100005;
 
 void solve() {
-    string s;
-    cin >> s;
+    ll n;
+    cin >> n;
     
-    
+    int s = 0, e = n-1;
+    vector<int> vec(n);
+
+    for (int i=1; i<=n; i++) {
+        if (i&1) {vec[s] = i; s++;}
+        else {vec[e] = i; e--;}
+    }
+    debug(vec);
 }
 
 int main() {

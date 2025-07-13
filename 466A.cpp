@@ -8,24 +8,22 @@ typedef int long long ll;
 #define fastio ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0)
 #define print(a) cout << a << "\n"
 #define printab(a,b) cout << a << " " << b << "\n"
-#define readV(vec) for (auto &e: vec) cin >> e;
-#define debug(vec) for (auto &e: vec) {cout << e << " ";} cout << "\n";
 #define nl cout << "\n"
-#define YES {cout << "YES" << "\n"; return;}
-#define NO {cout << "NO" << "\n"; return;}
-
-const int N = 100005;
 
 void solve() {
-    string s;
-    cin >> s;
+    ll n, m, a, b, ans = INT_MAX;
+    cin >> n >> m >> a >> b;
     
     
+    ans = min(ans, a*n);
+    ans = min(((n/m)+(n%m!=0))*b, ans);
+    ans = min(ans, (n/m)*b + (n%m)*a);
+
+    print(ans);
 }
 
 int main() {
     fastio;
     int t = 1;
-    cin >> t;
     while (t--) solve();
 }

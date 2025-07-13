@@ -6,21 +6,20 @@ using namespace std;
 
 typedef int long long ll;
 #define fastio ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0)
-#define print(a) cout << a << "\n"
-#define printab(a,b) cout << a << " " << b << "\n"
 #define readV(vec) for (auto &e: vec) cin >> e;
-#define debug(vec) for (auto &e: vec) {cout << e << " ";} cout << "\n";
-#define nl cout << "\n"
 #define YES {cout << "YES" << "\n"; return;}
 #define NO {cout << "NO" << "\n"; return;}
 
-const int N = 100005;
-
 void solve() {
-    string s;
-    cin >> s;
-    
-    
+    ll n;
+    cin >> n;
+    vector<ll> a(n), b(n), c(n);  
+    readV(a); readV(b);
+
+    for (int i=0; i<n; i++) c[i] = a[i]-b[i];
+    sort(c.begin(), c.end());
+    for (int i = 1; i<n; i++) if (c[i]<abs(c[0])) NO;
+    YES;
 }
 
 int main() {
