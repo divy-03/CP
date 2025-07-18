@@ -17,24 +17,24 @@ typedef int long long ll;
 const int N = 100005;
 
 void solve() {
-    ll n, j, k, cnt = 0, a;
-    cin >> n >> j >> k;
-    set<int> st;
-
+    ll n, k, cnt = 0, ans = 0;
+    cin >> n >> k;
+    
+    vector<ll> vec(n); readV(vec);
+    
     for (int i = 0; i<n; i++) {
-        int t;
-        cin >> t;
-        if (i == j-1) a = t;
-        st.insert(t);
+        if (vec[i] == 0) {
+            cnt++;
+            if (cnt == k) {
+                i++;
+                ans++;
+                cnt = 0;
+            } 
+        } else {
+            cnt = 0;
+        }
     }
-
-    for (auto it = st.rbegin(); it != st.rend(); ++it) {
-        cnt++;
-        if (a == *it) break; 
-    }
-
-    if (cnt <= k) YES;
-    else NO;
+    print(ans);
 }
 
 int main() {

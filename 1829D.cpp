@@ -16,24 +16,19 @@ typedef int long long ll;
 
 const int N = 100005;
 
+bool check(int a, int b, int t) {
+    if (a == t || b == t) return true;
+    if (a == 0 && b == 0) return false;
+    return check((a*2)/3, a/3, t);
+}
+
 void solve() {
-    ll n, j, k, cnt = 0, a;
-    cin >> n >> j >> k;
-    set<int> st;
-
-    for (int i = 0; i<n; i++) {
-        int t;
-        cin >> t;
-        if (i == j-1) a = t;
-        st.insert(t);
-    }
-
-    for (auto it = st.rbegin(); it != st.rend(); ++it) {
-        cnt++;
-        if (a == *it) break; 
-    }
-
-    if (cnt <= k) YES;
+    ll n, t;
+    cin >> n >> t;
+    
+    if (n==t) {YES; return;}
+    if (t>n) {NO; return;}
+    if (check((n*2)/3, n/3, t)) YES;
     else NO;
 }
 

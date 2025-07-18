@@ -17,24 +17,20 @@ typedef int long long ll;
 const int N = 100005;
 
 void solve() {
-    ll n, j, k, cnt = 0, a;
-    cin >> n >> j >> k;
-    set<int> st;
+    ll n, k;
+    cin >> n >> k;
+    
+    vector<tuple<int, int, int>> tp;
 
-    for (int i = 0; i<n; i++) {
-        int t;
-        cin >> t;
-        if (i == j-1) a = t;
-        st.insert(t);
+    for (int i=0; i<n; i++) {
+        int a, b, c;
+        cin >> a >> b >> c;
+        tp.emplace_back(a, b, c);
     }
 
-    for (auto it = st.rbegin(); it != st.rend(); ++it) {
-        cnt++;
-        if (a == *it) break; 
+    for (const auto& t: tp) {
+        print(get<0>(t));
     }
-
-    if (cnt <= k) YES;
-    else NO;
 }
 
 int main() {

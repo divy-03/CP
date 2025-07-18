@@ -17,29 +17,28 @@ typedef int long long ll;
 const int N = 100005;
 
 void solve() {
-    ll n, j, k, cnt = 0, a;
-    cin >> n >> j >> k;
-    set<int> st;
+    ll n, m, k;
+    cin >> n >> m >> k;
+    
+    vector<ll> a(m); readV(a);
+    vector<ll> b(k); readV(b);
+    vector<ll> mp(n+1, 0);
 
-    for (int i = 0; i<n; i++) {
-        int t;
-        cin >> t;
-        if (i == j-1) a = t;
-        st.insert(t);
+    for (int i: b) mp[i]++;
+    
+    if (k<n-1) cout << string(m, '0') << "\n";
+    else if (k == n) cout << string(m, '1') << "\n";
+    else {
+        for (int i: a) {
+            if (mp[i]!=0) cout << 0;
+            else cout << 1;
+        }nl;
     }
-
-    for (auto it = st.rbegin(); it != st.rend(); ++it) {
-        cnt++;
-        if (a == *it) break; 
-    }
-
-    if (cnt <= k) YES;
-    else NO;
 }
 
 int main() {
     fastio;
     int t = 1;
     cin >> t;
-    while (t--) solve();
+    while (t--) {solve();}
 }

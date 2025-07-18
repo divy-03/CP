@@ -17,24 +17,15 @@ typedef int long long ll;
 const int N = 100005;
 
 void solve() {
-    ll n, j, k, cnt = 0, a;
-    cin >> n >> j >> k;
-    set<int> st;
-
-    for (int i = 0; i<n; i++) {
-        int t;
-        cin >> t;
-        if (i == j-1) a = t;
-        st.insert(t);
+    ll n, mn = INT_MAX;
+    cin >> n;
+    
+    while (n!=0) {
+        ll dig = n%10;
+        n = n/10;
+        mn = min(mn, dig);
     }
-
-    for (auto it = st.rbegin(); it != st.rend(); ++it) {
-        cnt++;
-        if (a == *it) break; 
-    }
-
-    if (cnt <= k) YES;
-    else NO;
+    print(mn);
 }
 
 int main() {
