@@ -11,19 +11,23 @@ typedef int long long ll;
 #define readV(vec) for (auto &e: vec) cin >> e;
 #define debug(vec) for (auto &e: vec) {cout << e << " ";} cout << "\n";
 #define nl cout << "\n"
-#define YES {cout << "YES" << "\n"; return;}
-#define NO {cout << "NO" << "\n"; return;}
+#define YES cout << "YES" << "\n"
+#define NO cout << "NO" << "\n"
 
 const int N = 100005;
 
 void solve() {
-    ll n, j, k;
-    cin >> n >> j >> k;
-    vector<ll> vec(n); readV(vec);
-    
-    if (k>1) YES
-    if (k==1 && vec[j-1] == *max_element(vec.begin(), vec.end())) YES
-    NO
+    ll n;
+    cin >> n;
+    vector<ll> vec;
+
+    for (int i=0; i<n; i++) {
+        int a; cin >> a;
+        if (a == 0) a = 1;
+        vec.push_back(a);
+    }
+    ll sum = accumulate(vec.begin(), vec.end(), 0LL);
+    print(sum);
 }
 
 int main() {
